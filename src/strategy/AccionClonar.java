@@ -9,24 +9,26 @@ import constants.Constantes;
 
 public class AccionClonar implements Accion {
 
-    private int idClonar;
-    private List<Juguete> juguetes;
     private Scanner scanner = new Scanner(System.in);
-
-    public void setIdClonar(List<Juguete> juguetes) {
-        this.juguetes = juguetes;
-        
-        System.out.println("Digite el ID del juguete que desea clonar");
-        int opcion = scanner.nextInt();
-        scanner.nextLine();
-        this.idClonar = opcion;
-    }
 
     @Override
     public List<Juguete> aplicar(List<Juguete> juguetes) {
-        // TODO throw new exception "Must first set idClonar"."
-        // return juguetes.get(idClonar).clone();
-        return null;
+        
+        System.out.println("Digite el ID del juguete que desea clonar");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Cuantos desea clonar?");
+        int cantidad = scanner.nextInt();
+        scanner.nextLine();
+
+        for(int i = 0; i < cantidad; i++) {
+            Juguete clonJuguete = juguetes.get(id - 1).clone();
+            clonJuguete.setId(juguetes.size() + 1);
+            juguetes.add(clonJuguete);
+        }
+
+        return juguetes;
     }
 
     @Override

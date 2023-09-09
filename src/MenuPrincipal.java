@@ -45,20 +45,6 @@ public class MenuPrincipal {
             else if (accion == null && opcion == Constantes.OPCION_SALIR) {
                 System.out.println("SALIDA EXITOSA");
             }
-            else if (opcion == Constantes.OPCION_CLONAR) {
-                // Mostrar todos.
-
-                System.out.println("Cuantos desea clonar?");
-                int cantidad = scanner.nextInt();
-                scanner.nextLine();
-
-                Juguete clonJuguete;
-                for(int i = 0; i < cantidad; i++) {
-                    // clonJuguete = accion.aplicar();
-                    // clonJuguete.setId(juguetes.size() + 1);
-                }
-                System.out.println("Se ha creado " + cantidad + " nuevo(s) clon(es)");
-            }
             else {
                 juguetes = accion.aplicar(getJuguetes());
             }
