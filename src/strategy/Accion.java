@@ -1,12 +1,11 @@
 package strategy;
 
+import java.util.List;
 import entities.Juguete;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public interface Accion {
 
-    Juguete aplicar();
+    List<Juguete> aplicar(List<Juguete> juguetes);
     int getOpcion();
 }

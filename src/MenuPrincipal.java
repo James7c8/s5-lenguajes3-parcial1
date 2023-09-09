@@ -47,26 +47,26 @@ public class MenuPrincipal {
             }
             else if (opcion == Constantes.OPCION_CLONAR) {
                 // Mostrar todos.
-                
-                
+
                 System.out.println("Cuantos desea clonar?");
                 int cantidad = scanner.nextInt();
                 scanner.nextLine();
+
+                Juguete clonJuguete;
                 for(int i = 0; i < cantidad; i++) {
-                    
+                    // clonJuguete = accion.aplicar();
+                    // clonJuguete.setId(juguetes.size() + 1);
                 }
+                System.out.println("Se ha creado " + cantidad + " nuevo(s) clon(es)");
             }
             else {
-                Juguete nuevoJuguete = accion.aplicar();
-                nuevoJuguete.setId(juguetes.size() + 1);
-                juguetes.add(nuevoJuguete);
-                System.out.println("Se ha creado un nuevo" + nuevoJuguete.getClass().getSimpleName());
+                juguetes = accion.aplicar(getJuguetes());
             }
 
         } while (opcion != Constantes.OPCION_SALIR);
 
         for (Juguete juguete : juguetes) {
-            System.out.println();
+            juguete.toString();
         }
     }
 

@@ -1,6 +1,7 @@
 package strategy;
 
 import entities.Juguete;
+import entities.Peluche;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,8 +23,9 @@ public class AccionClonar implements Accion {
     }
 
     @Override
-    public Juguete aplicar() {
-        Juguete jugueteClonar = juguetes.get(idClonar);
+    public List<Juguete> aplicar(List<Juguete> juguetes) {
+        // TODO throw new exception "Must first set idClonar"."
+        // return juguetes.get(idClonar).clone();
         return null;
     }
 

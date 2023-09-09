@@ -6,7 +6,6 @@ public class Carrito implements Juguete {
     private String marca;
     private int numeroPuertas;
     private String color;
-    private String juguete = "carrito";
 
     public Carrito(long id, String marca, int numeroPuertas, String color) {
         this.id = id;
@@ -31,7 +30,7 @@ public class Carrito implements Juguete {
     }
 
     @Override
-    public Carrito clone() {
+    public Juguete clone() {
         return new Carrito(this);
     }
 

@@ -1,12 +1,13 @@
 package strategy;
 
 import entities.Juguete;
+import java.util.List;
 import constants.Constantes;
 
 public class AccionMostrarTodo implements Accion {
 
     @Override
-    public Juguete aplicar() {
+    public List<Juguete> aplicar(List<Juguete> juguetes) {
         return null;
     }
 

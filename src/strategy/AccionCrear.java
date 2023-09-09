@@ -5,13 +5,13 @@ import factory.CarritoFactory;
 import factory.Factory;
 import factory.PelucheFactory;
 import constants.Constantes;
-
+import java.util.List;
 import java.util.Scanner;
 
 public class AccionCrear implements Accion {
 
     @Override
-    public Juguete aplicar() {
+    public List<Juguete> aplicar(List<Juguete> juguetes) {
 
         Scanner scanner = new Scanner(System.in);
         // TODO exceptions.
@@ -25,7 +25,11 @@ public class AccionCrear implements Accion {
         else if (opcion == 2) factory = new CarritoFactory();
         else return null; // TODO.
 
-        return factory.crear();
+        Juguete nuevoJuguete = factory.crear();
+        nuevoJuguete.setId(juguetes.size() + 1);
+        juguetes.add(nuevoJuguete);
+
+        return juguetes;
     }
 
     @Override

@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class PelucheFactory implements Factory {
 
-    
-
     @Override
     public Juguete crear() {
 

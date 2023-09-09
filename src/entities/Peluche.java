@@ -6,7 +6,6 @@ public class Peluche implements Juguete {
     private String relleno;
     private String materialExterior;
     private String color;
-    private String juguete = "peluche";
 
     public Peluche(long id, String relleno, String materialExterior, String color) {
         this.id = id;
@@ -34,6 +33,7 @@ public class Peluche implements Juguete {
     public Peluche clone() {
         return new Peluche(this);
     }
+
 
     @Override
     public String toString() {
@@ -76,4 +76,6 @@ public class Peluche implements Juguete {
             return new Peluche(id, relleno, materialExterior, color);
         }
     }
+
+
 }
