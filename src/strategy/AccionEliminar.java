@@ -1,6 +1,7 @@
 package strategy;
 
 import entities.Juguete;
+import constants.Constantes;
 
 public class AccionEliminar implements Accion {
 
@@ -12,6 +13,6 @@ public class AccionEliminar implements Accion {
 
     @Override
     public int getOpcion() {
-        return 3;
+        return Constantes.OPCION_ELIMINAR;
     }
 }

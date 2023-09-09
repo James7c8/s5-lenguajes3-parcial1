@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import constants.Constantes;
 
 public class MenuPrincipal {
 
@@ -19,7 +20,7 @@ public class MenuPrincipal {
         return instance;
     }
 
-    public void mostrarMenu() {
+    public void ejecutarMenu() {
         Scanner scanner = new Scanner(System.in);
 
         Map<Integer, Accion> strategy = AccionHandler.getStrategy();
@@ -28,21 +29,45 @@ public class MenuPrincipal {
         do {
             System.out.println(
                     "Ingrese una opción \n" +
-                            "(1) - Crear\n" +
-                            "(2) - Clonar\n" +
-                            "(3) - Eliminar\n" +
-                            "(4) - Mostrar Todo\n(" +
+                            "(1) - Crear un juguete\n" +
+                            "(2) - Clonar un juguete\n" +
+                            "(3) - Eliminar un juguete\n" +
+                            "(4) - Mostrar todos los juguetes\n(" +
                             + Constantes.OPCION_SALIR + ") - SALIR"
             );
             opcion = scanner.nextInt();
             scanner.nextLine();
             Accion accion = strategy.get(opcion);
 
-            if (accion == null && opcion!= Constantes.OPCION_SALIR) System.out.println("Esta opcion no existe");
-            else if (accion == null && opcion == Constantes.OPCION_SALIR) System.out.println("SALIDA EXITOSA");
-            else juguetes.add(accion.aplicar());
+            if (accion == null && opcion!= Constantes.OPCION_SALIR) {
+                System.out.println("Esta opcion no existe");
+            }
+            else if (accion == null && opcion == Constantes.OPCION_SALIR) {
+                System.out.println("SALIDA EXITOSA");
+            }
+            else if (opcion == Constantes.OPCION_CLONAR) {
+                // Mostrar todos.
+                
+                
+                System.out.println("Cuantos desea clonar?");
+                int cantidad = scanner.nextInt();
+                scanner.nextLine();
+                for(int i = 0; i < cantidad; i++) {
+                    
+                }
+            }
+            else {
+                Juguete nuevoJuguete = accion.aplicar();
+                nuevoJuguete.setId(juguetes.size() + 1);
+                juguetes.add(nuevoJuguete);
+                System.out.println("Se ha creado un nuevo" + nuevoJuguete.getClass().getSimpleName());
+            }
 
         } while (opcion != Constantes.OPCION_SALIR);
+
+        for (Juguete juguete : juguetes) {
+            System.out.println();
+        }
     }
 
     public List<Juguete> getJuguetes() {

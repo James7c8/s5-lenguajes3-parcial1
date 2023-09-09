@@ -1,6 +1,7 @@
 package strategy;
 
 import entities.Juguete;
+import constants.Constantes;
 
 public class AccionMostrarTodo implements Accion {
 
@@ -11,6 +12,6 @@ public class AccionMostrarTodo implements Accion {
 
     @Override
     public int getOpcion() {
-        return 4;
+        return Constantes.OPCION_MOSTRAR_TODO;
     }
 }

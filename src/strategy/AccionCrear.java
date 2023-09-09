@@ -4,6 +4,7 @@ import entities.Juguete;
 import factory.CarritoFactory;
 import factory.Factory;
 import factory.PelucheFactory;
+import constants.Constantes;
 
 import java.util.Scanner;
 
@@ -29,6 +30,6 @@ public class AccionCrear implements Accion {
 
     @Override
     public int getOpcion() {
-        return 1;
+        return Constantes.OPCION_CREAR;
     }
 }

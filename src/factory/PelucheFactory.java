@@ -2,11 +2,12 @@ package factory;
 
 import entities.Juguete;
 import entities.Peluche;
-
+import java.util.List;
 import java.util.Scanner;
 
 public class PelucheFactory implements Factory {
 
+    
 
     @Override
     public Juguete crear() {
@@ -26,4 +27,5 @@ public class PelucheFactory implements Factory {
                 .color(color)
                 .build();
     }
+
 }

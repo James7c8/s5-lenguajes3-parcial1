@@ -6,6 +6,7 @@ public class Peluche implements Juguete {
     private String relleno;
     private String materialExterior;
     private String color;
+    private String juguete = "peluche";
 
     public Peluche(long id, String relleno, String materialExterior, String color) {
         this.id = id;
@@ -14,8 +15,24 @@ public class Peluche implements Juguete {
         this.color = color;
     }
 
+    public Peluche(Peluche peluche) {
+        this.relleno = peluche.relleno;
+        this.materialExterior = peluche.materialExterior;
+        this.color = peluche.color;
+    }
+
     public static PelucheBuilder builder() {
         return new PelucheBuilder();
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Override
+    public Peluche clone() {
+        return new Peluche(this);
     }
 
     @Override
@@ -58,37 +75,5 @@ public class Peluche implements Juguete {
         public Peluche build() {
             return new Peluche(id, relleno, materialExterior, color);
         }
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getRelleno() {
-        return relleno;
-    }
-
-    public void setRelleno(String relleno) {
-        this.relleno = relleno;
-    }
-
-    public String getMaterialExterior() {
-        return materialExterior;
-    }
-
-    public void setMaterialExterior(String materialExterior) {
-        this.materialExterior = materialExterior;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 }

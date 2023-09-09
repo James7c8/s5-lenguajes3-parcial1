@@ -17,7 +17,11 @@ public class Main {
 
 
         MenuPrincipal menu = new MenuPrincipal();
-        menu.mostrarMenu();
+        menu.ejecutarMenu();
+
+        for (Juguete juguete : menu.getJuguetes()) {
+            System.out.println(juguete);
+        }
 
     }
 }
