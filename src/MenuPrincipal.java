@@ -3,6 +3,7 @@ import strategy.Accion;
 import strategy.AccionHandler;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ public class MenuPrincipal {
     private List<Juguete> juguetes = new ArrayList<>();
 
     public static MenuPrincipal getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new MenuPrincipal();
         }
         return instance;
@@ -25,38 +26,49 @@ public class MenuPrincipal {
 
         Map<Integer, Accion> strategy = AccionHandler.getStrategy();
 
-        int opcion;
+        boolean isInputOK = true;
         do {
-            System.out.println(
-                    "Ingrese una opción \n" +
-                            "(1) - Crear un juguete\n" +
-                            "(2) - Clonar un juguete\n" +
-                            "(3) - Eliminar un juguete\n" +
-                            "(4) - Mostrar todos los juguetes\n(" +
-                            + Constantes.OPCION_SALIR + ") - SALIR"
-            );
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-            Accion accion = strategy.get(opcion);
+            try {
+                int opcion;
+                do {
+                    imprimirMenu();
+                    opcion = scanner.nextInt();
+                    scanner.nextLine();
+                    Accion accion = strategy.get(opcion);
 
-            if (accion == null && opcion!= Constantes.OPCION_SALIR) {
-                System.out.println("Esta opcion no existe");
-            }
-            else if (accion == null && opcion == Constantes.OPCION_SALIR) {
-                System.out.println("SALIDA EXITOSA");
-            }
-            else {
-                juguetes = accion.aplicar(getJuguetes());
+                    if (opcion == Constantes.OPCION_SALIR) {
+                        System.out.println("\nPrograma salido con éxito\n");
+                        break;
+                    } else {
+                        juguetes = accion.aplicar(juguetes);
+                    }
+                    
+                } while (opcion != Constantes.OPCION_SALIR);
+
+            } catch (InputMismatchException e) {
+                isInputOK = false;
+                scanner.nextLine();
+                System.out.println("\nERROR: Debe digitar un número entero");
+
+            } catch (NullPointerException e) {
+                isInputOK = false;
+                System.out.println("\nERROR: Debe digitar una opción válida");
             }
 
-        } while (opcion != Constantes.OPCION_SALIR);
+        } while (!isInputOK);
 
-        for (Juguete juguete : juguetes) {
-            juguete.toString();
-        }
+        scanner.close();
     }
 
-    public List<Juguete> getJuguetes() {
-        return juguetes;
+    private void imprimirMenu() {
+        System.out.print("\n----------------------------------\n"
+                            + "--------- MENU PRINCIPAL ---------\n"
+                            + "----------------------------------\n" 
+                            + "  Digite una opción \n\n"
+                            + "  1 - CREAR un juguete\n" 
+                            + "  2 - CLONAR un juguete\n"
+                            + "  3 - ELIMINAR un juguete\n"
+                            + "  4 - MOSTRAR todos los juguetes\n\n  " + Constantes.OPCION_SALIR
+                            + " - SALIR \n" + "----------------------------------\n  > ");
     }
 }

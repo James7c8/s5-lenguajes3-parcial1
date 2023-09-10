@@ -37,12 +37,11 @@ public class Peluche implements Juguete {
 
     @Override
     public String toString() {
-        return "entities.Peluche{" +
-                "id=" + id +
-                ", relleno='" + relleno + '\'' +
-                ", materialExterior='" + materialExterior + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+        return "Juguete Peluche: " +
+                "id = " + id +
+                ", relleno = '" + relleno + '\'' +
+                ", material del exterior = '" + materialExterior + '\'' +
+                ", color = '" + color + '\'';
     }
 
     public static class PelucheBuilder {

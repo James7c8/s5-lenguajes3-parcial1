@@ -36,11 +36,11 @@ public class Carrito implements Juguete {
 
     @Override
     public String toString() {
-        return "entities.Carrito{" +
-                "id=" + id +
-                ", marca='" + marca + '\'' +
-                ", numeroPuertas='" + numeroPuertas + '\'' +
-                ", color='" + color + '\'' +
+        return "Juguete Carrito: " +
+                "id = " + id +
+                ", marca = '" + marca + '\'' +
+                ", numero de puertas = " + numeroPuertas +
+                ", color = '" + color + '\'' +
                 '}';
     }
 
