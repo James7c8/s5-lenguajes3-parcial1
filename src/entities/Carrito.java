@@ -29,6 +29,8 @@ public class Carrito implements Juguete {
         this.id = id;
     }
 
+
+    // Clonar no debe clonar también el ID. Mejor retornar el builder sin que se incluya el ID.
     @Override
     public Juguete clone() {
         return new Carrito(this);

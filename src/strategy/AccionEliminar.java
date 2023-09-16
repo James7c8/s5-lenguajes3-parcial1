@@ -29,7 +29,8 @@ public class AccionEliminar implements Accion {
                
                 juguetes.remove(id - 1);
 
-                for (int i = 0; i < juguetes.size(); i++) {
+                // Recorrer la lista desde el juguete que se elminó. en vez de toda la lista.
+                for (int i = (id - 1); i < juguetes.size(); i++) {
                     juguetes.get(i).setId(i + 1);
                 }
             
