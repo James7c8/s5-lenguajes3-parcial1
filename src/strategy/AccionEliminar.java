@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import constants.Constantes;
+import exceptions.ListaVaciaExcepcion;
 
 public class AccionEliminar implements Accion {
 
@@ -15,10 +16,7 @@ public class AccionEliminar implements Accion {
     @Override
     public void aplicar(List<Juguete> juguetes) {
 
-        if (juguetes.isEmpty()) {
-            System.out.println("\nERROR: No hay juguetes registrados");
-            return;
-        }
+        if (juguetes.isEmpty()) throw new ListaVaciaExcepcion();
 
         boolean isInputOK = true;
         do {

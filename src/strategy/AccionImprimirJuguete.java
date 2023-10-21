@@ -4,6 +4,7 @@ import constants.Constantes;
 import entities.Carrito;
 import entities.Juguete;
 import entities.Peluche;
+import exceptions.ListaVaciaExcepcion;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -13,6 +14,11 @@ import java.util.Scanner;
 public class AccionImprimirJuguete implements Accion {
     @Override
     public void aplicar(List<Juguete> juguetes) {
+
+        if (juguetes.isEmpty()) {
+            throw new ListaVaciaExcepcion();
+        }
+
         Scanner scanner = new Scanner(System.in);
 
         List<Juguete> juguetesDesc = new ArrayList<>();

@@ -69,7 +69,8 @@ public class MenuPrincipal {
                             + "  2 - CLONAR un juguete\n"
                             + "  3 - ELIMINAR un juguete\n"
                             + "  4 - MOSTRAR todos los juguetes\n"
-                            + "  5 - IMPRIMIR los Peluches o los Carros\n\n  " + Constantes.OPCION_SALIR
+                            + "  5 - IMPRIMIR los Peluches o los Carros\n"
+                            + "  6 - IMPRIMIR el Carrito con más puertas\n\n  " + Constantes.OPCION_SALIR
                             + " - SALIR \n" + "----------------------------------\n  > ");
     }
 }
