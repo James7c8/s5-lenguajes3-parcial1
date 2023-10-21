@@ -1,17 +1,16 @@
 package strategy;
 
 import constants.Constantes;
+import entities.Carrito;
 import entities.Juguete;
-import factory.CarritoFactory;
-import factory.Factory;
-import factory.PelucheFactory;
+import entities.Peluche;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class AccionImprimir implements Accion {
+public class AccionImprimirJuguete implements Accion {
     @Override
     public void aplicar(List<Juguete> juguetes) {
         Scanner scanner = new Scanner(System.in);
@@ -31,12 +30,12 @@ public class AccionImprimir implements Accion {
             switch (opcion) {
                 case 1:
                     juguetesDesc.stream()
-                            .filter(juguete -> juguete.toString().contains("Peluche"))
+                            .filter(juguete -> juguete instanceof Peluche)
                             .forEach(System.out::println);
                     return;
                 case 2:
                     juguetesDesc.stream()
-                            .filter(juguete -> juguete.toString().contains("Carrito"))
+                            .filter(juguete ->  juguete instanceof Carrito)
                             .forEach(System.out::println);
                     return;
                 case Constantes.OPCION_SALIR:
@@ -55,6 +54,6 @@ public class AccionImprimir implements Accion {
 
     @Override
     public int getOpcion() {
-        return Constantes.OPCION_IMPRIMIR;
+        return Constantes.OPCION_IMPRIMIR_JUGUETE;
     }
 }

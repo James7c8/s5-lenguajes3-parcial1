@@ -5,5 +5,6 @@ public class Constantes {
     public static final int OPCION_CLONAR = 2;
     public static final int OPCION_ELIMINAR = 3;
     public static final int OPCION_MOSTRAR_TODO = 4;
-    public static final int OPCION_IMPRIMIR = 5;
+    public static final int OPCION_IMPRIMIR_JUGUETE = 5;
+    public static final int OPCION_IMPRIMIR_PUERTAS = 6;
 }
