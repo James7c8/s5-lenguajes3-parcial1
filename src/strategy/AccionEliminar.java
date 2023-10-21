@@ -4,6 +4,8 @@ import entities.Juguete;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+
 import constants.Constantes;
 
 public class AccionEliminar implements Accion {
@@ -11,11 +13,11 @@ public class AccionEliminar implements Accion {
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public List<Juguete> aplicar(List<Juguete> juguetes) {
+    public void aplicar(List<Juguete> juguetes) {
 
         if (juguetes.isEmpty()) {
             System.out.println("\nERROR: No hay juguetes registrados");
-            return juguetes;
+            return;
         }
 
         boolean isInputOK = true;
@@ -46,8 +48,6 @@ public class AccionEliminar implements Accion {
                     " juguetes registrados,\n       por favor digite un ID válido (entre 1 y " + juguetes.size() + ")");
             }
         } while (!isInputOK);
-
-        return juguetes;
     }
 
     @Override

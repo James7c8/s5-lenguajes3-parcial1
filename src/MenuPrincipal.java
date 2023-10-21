@@ -2,17 +2,16 @@ import entities.Juguete;
 import strategy.Accion;
 import strategy.AccionHandler;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+
 import constants.Constantes;
+import utils.Utils;
 
 public class MenuPrincipal {
 
     private static MenuPrincipal instance;
-    private List<Juguete> juguetes = new ArrayList<>();
+    private Set<Juguete> juguetesSet = new LinkedHashSet<>();
+    private MenuPrincipal() {}
 
     public static MenuPrincipal getInstance() {
         if (instance == null) {
@@ -25,6 +24,7 @@ public class MenuPrincipal {
         Scanner scanner = new Scanner(System.in);
 
         Map<Integer, Accion> strategy = AccionHandler.getStrategy();
+        List<Juguete> juguetes = Utils.setToArray(juguetesSet);
 
         boolean isInputOK = true;
         do {
@@ -40,7 +40,7 @@ public class MenuPrincipal {
                         System.out.println("\nPrograma salido con éxito\n");
                         break;
                     } else {
-                        juguetes = accion.aplicar(juguetes);
+                        accion.aplicar(juguetes);
                     }
                     
                 } while (opcion != Constantes.OPCION_SALIR);
@@ -68,7 +68,8 @@ public class MenuPrincipal {
                             + "  1 - CREAR un juguete\n" 
                             + "  2 - CLONAR un juguete\n"
                             + "  3 - ELIMINAR un juguete\n"
-                            + "  4 - MOSTRAR todos los juguetes\n\n  " + Constantes.OPCION_SALIR
+                            + "  4 - MOSTRAR todos los juguetes\n"
+                            + "  5 - IMPRIMIR los Peluches o los Carros\n\n  " + Constantes.OPCION_SALIR
                             + " - SALIR \n" + "----------------------------------\n  > ");
     }
 }

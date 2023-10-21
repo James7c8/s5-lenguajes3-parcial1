@@ -8,11 +8,12 @@ import constants.Constantes;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class AccionCrear implements Accion {
 
     @Override
-    public List<Juguete> aplicar(List<Juguete> juguetes) {
+    public void aplicar(List<Juguete> juguetes) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -31,7 +32,7 @@ public class AccionCrear implements Accion {
                 else if (opcion == 2)
                     factory = new CarritoFactory();
                 else if (opcion == Constantes.OPCION_SALIR)
-                    return juguetes;
+                    return;
                 else {
                     throw new IndexOutOfBoundsException();
                 }
@@ -50,8 +51,6 @@ public class AccionCrear implements Accion {
                 System.out.println("  ERROR: Debe digitar una opción válida");
             }
         } while (!isInputOK);
-
-        return juguetes;
     }
 
     @Override

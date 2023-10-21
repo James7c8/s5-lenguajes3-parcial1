@@ -4,18 +4,21 @@ import entities.Juguete;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+
 import constants.Constantes;
+import utils.Utils;
 
 public class AccionClonar implements Accion {
 
     private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public List<Juguete> aplicar(List<Juguete> juguetes) {
+    public void aplicar(List<Juguete> juguetes) {
 
         if (juguetes.isEmpty()) {
             System.out.println("\nERROR: No hay juguetes registrados");
-            return juguetes;
+            return;
         }
 
         boolean isInputOK = true;
@@ -47,8 +50,6 @@ public class AccionClonar implements Accion {
                         + juguetes.size() + ")");
             }
         } while (!isInputOK);
-
-        return juguetes;
     }
 
     @Override

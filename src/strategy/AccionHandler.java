@@ -14,7 +14,8 @@ public class AccionHandler {
             List.of(new AccionCrear(),
                     new AccionClonar(),
                     new AccionEliminar(),
-                    new AccionMostrarTodo())
+                    new AccionMostrarTodo(),
+                    new AccionImprimir())
                 .stream()
                 .collect(Collectors.toMap(Accion::getOpcion, Function.identity()));
 
