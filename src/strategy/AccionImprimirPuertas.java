@@ -4,6 +4,7 @@ import constants.Constantes;
 import entities.Carrito;
 import entities.Juguete;
 import exceptions.ListaVaciaExcepcion;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.Comparator;
 import java.util.List;
@@ -18,9 +19,17 @@ public class AccionImprimirPuertas implements Accion {
         if (juguetes.isEmpty()) throw new ListaVaciaExcepcion();
 
         Set<Carrito> carritos = juguetes.stream()
-                                    .filter(juguete -> juguete instanceof Carrito)
-                                    .map(juguete -> (Carrito) juguete)
-                                    .collect(Collectors.toSet());
+                .filter(juguete -> juguete instanceof Carrito)
+                .map(juguete -> (Carrito) juguete)
+                .collect(Collectors.toSet());
+
+        Optional<Carrito> carritoMaxPuertas = carritos.stream()
+                .max(Comparator.comparing(Carrito::getNumeroPuertas));
+
+        carritoMaxPuertas.ifPresentOrElse(
+            carrito -> System.out.println(carrito),
+            () -> System.out.println("No hay carritos en la lista")
+        );
     }
 
     @Override

@@ -10,7 +10,7 @@ import utils.Utils;
 public class MenuPrincipal {
 
     private static MenuPrincipal instance;
-    private Set<Juguete> juguetesSet = new LinkedHashSet<>();
+    private final Set<Juguete> juguetesSet = new LinkedHashSet<>();
     private MenuPrincipal() {}
 
     public static MenuPrincipal getInstance() {
@@ -70,7 +70,9 @@ public class MenuPrincipal {
                             + "  3 - ELIMINAR un juguete\n"
                             + "  4 - MOSTRAR todos los juguetes\n"
                             + "  5 - IMPRIMIR los Peluches o los Carros\n"
-                            + "  6 - IMPRIMIR el Carrito con más puertas\n\n  " + Constantes.OPCION_SALIR
+                            + "  6 - IMPRIMIR el Carrito con más puertas\n"
+                            + "  7 - CONVERTIR Set a Map\n"
+                            + "  8 - ELIMINAR juguetes por color\n\n  " + Constantes.OPCION_SALIR
                             + " - SALIR \n" + "----------------------------------\n  > ");
     }
 }

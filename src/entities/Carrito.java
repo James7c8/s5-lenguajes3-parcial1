@@ -29,6 +29,19 @@ public class Carrito implements Juguete {
         this.id = id;
     }
 
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public String getColor() {
+        return color;
+    }
+
+    public int getNumeroPuertas() {
+        return numeroPuertas;
+    }
 
     // Clonar no debe clonar también el ID. Mejor retornar el builder sin que se incluya el ID.
     @Override

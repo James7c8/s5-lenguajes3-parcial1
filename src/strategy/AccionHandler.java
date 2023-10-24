@@ -16,7 +16,9 @@ public class AccionHandler {
                     new AccionEliminar(),
                     new AccionMostrarTodo(),
                     new AccionImprimirJuguete(),
-                    new AccionImprimirPuertas())
+                    new AccionImprimirPuertas(),
+                    new AccionConvertir(),
+                    new AccionEliminarColor())
                 .stream()
                 .collect(Collectors.toMap(Accion::getOpcion, Function.identity()));
 

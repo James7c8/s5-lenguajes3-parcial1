@@ -29,13 +29,21 @@ public class Peluche implements Juguete {
         this.id = id;
     }
 
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public String getColor() {
+        return color;
+    }
     
     // Clonar no debe clonar también el ID. Mejor retornar el builder sin que se incluya el ID.
     @Override
     public Peluche clone() {
         return new Peluche(this);
     }
-
 
     @Override
     public String toString() {
